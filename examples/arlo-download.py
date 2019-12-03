@@ -1,9 +1,10 @@
+from arlo import Arlo
+
 from datetime import timedelta, date
+import datetime
 import sys, os
 sys.path.append('..')
-from Arlo import Arlo
 #import json
-import datetime
 
 USERNAME = 'user@example.com'
 PASSWORD = 'supersecretpassword'
@@ -33,13 +34,9 @@ try:
         videofilename = datetime.datetime.fromtimestamp(
             int(recording['name']) // 1000).strftime(
                 '%Y-%m-%d %H-%M-%S') + ' ' + recording['uniqueId'] + '.mp4'
-        with open(videopath + '/' + videofilename, 'w') as f:
+        with open(videopath + '/' + videofilename, 'wb') as f:
             for chunk in stream:
-                # Support both Python 2.7 and 3.
-                if sys.version[0] == '2':
-                    f.write(chunk)
-                else:
-                    f.buffer.write(chunk)
+                f.write(chunk)
             f.close()
 
         print('Downloaded video ' + videofilename + ' from ' +

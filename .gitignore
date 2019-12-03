@@ -87,3 +87,11 @@ ENV/
 
 # Rope project settings
 .ropeproject
+
+# vim files
+*.swp
+*.swo
+
+# Test script
+ArloTest.py*
+

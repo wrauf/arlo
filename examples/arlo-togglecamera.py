@@ -1,4 +1,4 @@
-from Arlo import Arlo
+from arlo import Arlo
 
 USERNAME = 'user@example.com'
 PASSWORD = 'supersecretpassword'
@@ -18,9 +18,9 @@ try:
 	cameras = arlo.GetDevices('camera')
 
 	# Turn camera on.
-	print(arlo.ToggleCamera(basestations[0], cameras[0], True)))
+	print(arlo.ToggleCamera(basestations[0], cameras[0], True))
 	# Turn camera off.
-	#print(arlo.ToggleCamera(basestations[0], cameras[0], False)))
+	#print(arlo.ToggleCamera(basestations[0], cameras[0], False))
 
 except Exception as e:
     print(e)

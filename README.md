@@ -1,49 +1,81 @@
+![](logo.png)	
 # arlo ![](https://img.shields.io/badge/python-2.7%2C%203.4%2C%203.5%2C%203.6-blue.svg)
 > Python module for interacting with Netgear's Arlo camera system.
+>
+>### Now in Golang!
+>If you love the Go programming language, check out [arlo-golang](https://github.com/jeffreydwalter/arlo-golang).
+>My goal is to bring parity to the Python version asap. If you know what you're doing in Go, I would appreciate any feedback on the >general structure of the library, and contributions, etc.
 
+---
+### GETTING STARTED
+Check out the [API DOCS](https://github.com/jeffreydwalter/arlo/tree/master/docs)
+
+**IMPORTANT:** There is a regression in `sseclient 0.0.24` that breaks this package. Please ensure you have `seeclient 0.0.22` installed.
+
+**IMPORTANT:** Please ensure you don't have ANY other `sseclient` packages installed in addition to `sseclient 0.0.22`! This may cause this package to fail in unexpected ways. A common one that is known to cause issues is the `sseclient-py 1.7` package. If you have a hard requirement to have more than one, please let me know and we can look into making that work.
+
+**IMPORTANT:** my.arlo.com requires TLS 1.2 for their API. So, if you're getting ssl errors, it's most likely related to your version of openssl. You may need to upgrade your openssl library.
+If you're running this library on OSX or macOS, they ship with `openssl v0.9.x` which does not support TLS 1.2. You should follow the instructions found [here](https://comeroutewithme.com/2016/03/13/python-osx-openssl-issue/) to upgrade your openssl library.
+
+---
+### Filing an Issue
+Please read the [Issue Guidelines and Policies](https://github.com/jeffreydwalter/arlo/wiki/Issue-Guidelines-and-Policies) wiki page **BEFORE** you file an issue. Thanks.
+
+---
+## Install
+```bash
+# Install latest stable package
+$ pip install arlo
+
+--or--
+
+# Install from master branch
+$ pip install git+https://github.com/jeffreydwalter/arlo
+```
+
+---
 This just a personal utility that I created out of necessity. It is by no means complete, although it does expose quite a bit of the Arlo interface in an easy to use Python pacakge. As such, this package does not come with unit tests (feel free to add them) or guarantees.
-**All contributions are welcome and appreciated!**
+**All [contributions](https://github.com/jeffreydwalter/arlo/issues?q=is%3Aissue+is%3Aopen+label%3A%22help+wanted%22) are welcome and appreciated!**
+--
+**If you have a specific Arlo device that you want to improve support for, please consider sending me one! Since this project is solely maintained by yours truely and I don't have unlimited funds to support it, I can only really test and debug the code with the first gen Arlo cameras and basestation that I have. I also highly encourage and appreciate Pull Requests!**
 
-**Please, feel free to contribute to this repo or, buy Jeff a beer!** [![Donate](https://img.shields.io/badge/Donate-PayPal-green.svg)](https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=R77B7UXMLA6ML&lc=US&item_name=Jeff%20Needs%20Beer&item_number=buyjeffabeer&currency_code=USD&bn=PP%2dDonationsBF%3abtn_donateCC_LG%2egif%3aNonHosted)
-
----
-### Generous Benefactors
-* [cubewot](https://github.com/cubewot) - $10.00 - Thanks for the two beers!
-* [imopen](https://github.com/imopen) - $5.00 - Thanks for the beer!
+**Please, feel free to [contribute](https://github.com/jeffreydwalter/arlo/issues?q=is%3Aissue+is%3Aopen+label%3A%22help+wanted%22) to this repo or buy Jeff a beer!** [![Donate](https://img.shields.io/badge/Donate-PayPal-green.svg)](https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=R77B7UXMLA6ML&lc=US&item_name=Jeff%20Needs%20Beer&item_number=buyjeffabeer&currency_code=USD&bn=PP%2dDonationsBF%3abtn_donateCC_LG%2egif%3aNonHosted)
 
 ---
+### Generous Benefactors (Thank you!)
+* [mhallikainen](https://github.com/mhallikainen) - 🍺🍺
+* [tinsheep](https://github.com/tinsheep) - 🍺🍺
+* [cubewot](https://github.com/cubewot) - 🍺🍺 
+* [imopen](https://github.com/imopen) - 🍺 
+* [notalifeform](https://github.com/notalifeform) - 🍺🍺
+* [anonymous](https://github.com/jeffreydwalter/arlo) - 🍺🍺🍺🍺
+* [kewashi](https://github.com/kewashi) - 🍺
 
-To get started, just do the following:
+---
+### Awesomely Smart Contributors (Thank you!)
+* [pabloNZ](https://github.com/pabloNZ) - Jun 4, 2019 - Added the Arlo doorbell, Ultra camera and basestation schemas to the wiki.
+* [m3ntalsp00n](https://github.com/m3ntalsp00n) - May 18, 2019 - Expanded ArloQ device support.
+* [burken-](https://github.com/burken-) - Apr 17, 2019 - Fixed arming/disarming ArloQ devices.
+* [m0urs](https://github.com/m0urs) - Apr 16, 2019 - Updated fqdn to new Arlo domain.
+* [kimc78](https://github.com/kimc78) - Aug 16, 2018 - Added method to get CVR recording list.
+* [jurgenweber](https://github.com/jurgenweber) - Apr 25, 2018 - Added Arlo Baby APIs!
+* [pliablepixels](https://github.com/pliablepixels) - Apr 3, 2018 - Fixed up issues with the README.
+* [manluk](https://github.com/manluk) - Mar 2, 2018 - Squashed a couple of bugs.
+* [notalifeform](https://github.com/notalifeform) - Feb 10, 2018 - Fixed bug and formatting in example script.
+* [erosen](https://github.com/erosen) - Jan 27, 2018 - Added the ArloQ camera schema to the wiki.
+* [deanmcguire](https://github.com/deanmcguire) - Dec 7, 2017 - Unravelled the mysteries of RTSP streaming video.
+* [andijakl](https://github.com/andijakl) - Jul 24, 2017 - Added Python 3 support and cleaned up examples.
+* [cemeyer2](https://github.com/cemeyer2) - Nov 26, 2016 - Fixed setup issues.
+* [LenShustek](https://github.com/LenShustek) - Sep 14, 2016, - Added Logout().
 
-They can be installed like so:
-```bash
-# Clone the git repository.
-$ git clone https://github.com/jeffreydwalter/arlo.git
-
-# Run the make command from the arlo repository directory to download and install all the dependencies.
-$ cd arlo
-$ make
-```
-or:
-```bash
-# Clone the git repository.
-$ git clone https://github.com/jeffreydwalter/arlo.git
-
-# Install the required libraries using pip.
-$ pip install monotonic 
-$ pip install requests
-$ pip install sseclient 
-```
-**A proper pip package is coming soon...**
-
-**NOTE: arlo.netgear.com requires TLS 1.2 for their API. So, if you're getting ssl errors, it's most likely related to your version of openssl. You must upgrade your openssl library.
-If you're running this library on OSX or macOS, they ship with openssl v0.9.x which does not support TLS 1.2. You should follow the instructions found here https://comeroutewithme.com/2016/03/13/python-osx-openssl-issue/ to upgrade your openssl library.**
+If You'd like to make a diffrence in the world and get your name on this most prestegious list, have a look at our [help wanted](https://github.com/jeffreydwalter/arlo/issues?q=is%3Aissue+is%3Aopen+label%3A%22help+wanted%22) section!
 
 After installing all of the required libraries, you can import and use this library like so:
 
 ```python
+from arlo import Arlo
+
 from datetime import timedelta, date
-from Arlo import Arlo
 import datetime
 import sys
 
@@ -72,20 +104,16 @@ try:
 		###    
 		#    # Download the whole video into memory as a single chunk.
 		#    video = arlo.GetRecording(recording['presignedContentUrl'])
-		#	 with open('videos/'+videofilename, 'w') as f:
-		#        f.write(stream)
+		#	 with open('videos/'+videofilename, 'wb') as f:
+		#        f.write(video)
 		#        f.close()
 		# Or:
 		#
 		# Get video as a chunked stream; this function returns a generator.
 		stream = arlo.StreamRecording(recording['presignedContentUrl'])
-		with open('videos/'+videofilename, 'w') as f:
+		with open('videos/'+videofilename, 'wb') as f:
 			for chunk in stream:
-				# Support both Python 2.7 and 3.
-				if sys.version[0] == '2':
-					f.write(chunk)
-				else:
-					f.buffer.write(chunk)
+				f.write(chunk)
 			f.close()
 
 		print('Downloaded video '+videofilename+' from '+recording['createdDate']+'.')
